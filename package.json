@@ -1,0 +1,13 @@
+{
+  "name": "ting-backend",
+  "version": "0.0.1",
+  "description": "ting app backend",
+  "main": "index.js",
+  "repository": "https://github.com/xubaoshi/ting-backend.git",
+  "author": "xubaoshi <948869516@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1"
+  }
+}
