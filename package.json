@@ -6,8 +6,28 @@
   "repository": "https://github.com/xubaoshi/ting-backend.git",
   "author": "xubaoshi <948869516@qq.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development node index.js",
+    "prod": "cross-env NODE_ENV=production node index.js",
+    "lint-staged": "lint-staged"
+  },
   "dependencies": {
+    "cross-env": "^6.0.3",
     "errorhandler": "^1.5.1",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.4.3",
+    "prettier": "^1.19.1"
+  },
+  "lint-staged": {
+    "**/*.{js,json}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged"
+    }
   }
 }

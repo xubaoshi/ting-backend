@@ -7,8 +7,6 @@ var app = express()
 
 if (process.env.NODE_ENV === 'development') {
   app.use(errorHandler())
-} else {
-  app.use
 }
 
 app.listen(config.port, function() {
