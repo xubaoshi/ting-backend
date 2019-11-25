@@ -4,6 +4,7 @@ var config = require('../../config')
 var commonUtil = require('../../utils/common')
 var path = require('path')
 var fs = require('fs')
+var file = require('../../utils/file')
 
 // 获取首页信息
 exports.getHome = asyncHandler(async function(req, res) {
@@ -57,17 +58,7 @@ exports.getHome = asyncHandler(async function(req, res) {
       })
 
       if (index === topics.length - 1) {
-        var relativePath = path.relative(__dirname, config.dataBasePath)
-        var dataFilePath = `${path.resolve(__dirname, relativePath)}/home.json`
-        fs.access(dataFilePath, fs.constants.F_OK, err => {
-          fs.writeFile(dataFilePath, JSON.stringify(topicsData), 'utf-8', err => {
-            if (err) {
-              console.log('写文件出错了，错误是：' + err)
-            } else {
-              console.log('home 文件写入成功')
-            }
-          })
-        })
+        file.saveData('home', topicsData)
         res.send(topicsData)
       }
     })
