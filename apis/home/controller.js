@@ -59,6 +59,7 @@ exports.getHome = asyncHandler(async function(req, res) {
 
       if (index === topics.length - 1) {
         file.saveData('home', topicsData)
+        await browser.close()
         res.send(topicsData)
       }
     })

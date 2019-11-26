@@ -1,6 +1,8 @@
-var asyncHandler = require('express-async-handler')
+var express = require('express')
+var controller = require('./controller')
+var router = express.Router()
 
-// 获取物料详情
-exports.getMaterialDetail = asyncHandler(async function(req, res) {
-  console.log('111')
-})
+router.get('/detail', controller.getMaterialDetail)
+router.get('/list', controller.getMaterialList)
+
+module.exports = router

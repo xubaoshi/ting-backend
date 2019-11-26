@@ -16,6 +16,21 @@ var saveData = (fileName, content) => {
   })
 }
 
+var getData = fileName => {
+  return new Promise((resolve, reject) => {
+    var relativePath = path.relative(__dirname, config.dataBasePath)
+    var dataFilePath = `${path.resolve(__dirname, relativePath)}/${fileName}.json`
+    var data = ''
+    // 读取操作待优化
+    fs.readFile(dataFilePath, 'utf-8', (err, result) => {
+      if (err) {
+        return ''
+      }
+      resolve(result)
+    })
+  })
+}
 module.exports = {
-  saveData
+  saveData,
+  getData
 }
